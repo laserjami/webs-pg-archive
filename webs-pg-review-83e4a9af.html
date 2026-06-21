@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pg模拟器 · 资料整理与信息索引页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafbfc;
+            color: #1e2a3a;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        /* hero – 窄且轻 */
+        .hero {
+            padding: 3rem 0 2rem 0;
+            border-bottom: 1px solid #e9edf2;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #526477;
+            max-width: 540px;
+        }
+
+        /* 普通标题层级 */
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 2.4rem 0 1rem 0;
+            color: #0f172a;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.6rem 0;
+            color: #1e2a3a;
+        }
+
+        p, li {
+            font-size: 1rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            padding-left: 1.4rem;
+            margin-bottom: 1.6rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 卡片 – 极简灰白/微阴影 */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.6rem 0 2rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #eef1f5;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            transition: box-shadow 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .card strong {
+            font-weight: 500;
+            color: #0f172a;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #3d4f66;
+        }
+
+        /* 链接样式 – 自然融入 */
+        a {
+            color: #1d4ed8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(29, 78, 216, 0.20);
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #1d4ed8;
+        }
+
+        /* 提示 / 引用块 */
+        .note-box {
+            background: #f1f5f9;
+            border-left: 3px solid #94a3b8;
+            padding: 1rem 1.4rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .note-box p {
+            margin-bottom: 0.2rem;
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        .faq-section {
+            margin: 2.5rem 0 1.8rem 0;
+        }
+
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 2.2rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #6b7a8f;
+            border-top: 1px solid #e9edf2;
+            padding-top: 1.8rem;
+            margin-top: 2.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.5rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1rem 1.2rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- hero -->
+        <div class="hero">
+            <h1>pg模拟器 · 信息索引</h1>
+            <div class="sub">从资料整理的角度，了解这个工具的背景、使用思路与注意事项</div>
+        </div>
+
+        <!-- 摘要 -->
+        <p>
+            如果你在寻找一个与 PostgreSQL 相关的交互环境，可能会遇到各种包装或在线服务。这里所讨论的 <a href="https://webs-pg-simulator.com">pg模拟器</a>，是一个面向学习与轻量验证的辅助工具，并非生产级数据库。它的定位更接近「带沙箱感的查询练习台」，适合用来快速测试 SQL 片段、了解基础语法，或者演示一些简单的数据模型。
+        </p>
+        <p>
+            从信息索引的角度看，这个工具的价值在于降低环境搭建的门槛：不需要本地安装客户端、不需要配置权限，打开页面就能进入一个可操作的查询区域。对于初学者或者偶尔需要临时跑一个 select 语句的人来说，这种轻量的方式比较友好。
+        </p>
+
+        <!-- 亮点 / 卡片形式 -->
+        <h2>几个值得留意的特点</h2>
+        <div class="card-list">
+            <div class="card">
+                <strong>零安装，纯浏览器端</strong>
+                <p>无需下载任何软件，也不用处理连接字符串。打开即用，适合在文档阅读间隙快速验证思路。</p>
+            </div>
+            <div class="card">
+                <strong>语法兼容子集</strong>
+                <p>支持常用的 DML 和 DDL 语句（SELECT、INSERT、CREATE TABLE 等），能满足大部分教学、演示或小型实验场景。</p>
+            </div>
+            <div class="card">
+                <strong>数据不持久存储</strong>
+                <p>页面关闭后数据即消失。这既是局限也是优点——适合做不留下痕迹的临时测试，但别用它保存重要资料。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 -->
+        <h2>使用建议</h2>
+        <p>根据日常整理的经验，下面几种情况会比较适合用到 <a href="https://webs-pg-simulator.com">pg模拟器</a>：</p>
+        <ul>
+            <li><strong>快速验证 SQL 写法</strong> —— 比如不确定某个 join 的语法细节，或者想看看窗口函数的输出格式，开一个新标签页跑两句就能确认。</li>
+            <li><strong>陪伴教程学习</strong> —— 跟着在线课程或文档练习时，用它来同步敲代码，避免频繁切换本地环境。</li>
+            <li><strong>轻量演示或截图</strong> —— 给同事或同学展示某个查询逻辑，不需要启动庞大的数据库客户端。</li>
+        </ul>
+        <p>当然，它不适合作为应用的后端数据库，也不支持高级功能如存储过程、触发器或大量并发连接。工具边界清晰，反而用着踏实。</p>
+
+        <!-- 可信但克制的说明 -->
+        <div class="note-box">
+            <p><strong>一点提醒</strong> · 该模拟器运行在浏览器环境中，数据仅存在于当前会话。不建议输入任何敏感信息、密码或业务机密。它只是一个辅助练习场，而非安全存储空间。</p>
+            <p style="margin-top:0.3rem;">如果你需要长期保存查询或数据集，建议转移到本地的 PostgreSQL 实例或托管数据库。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-section">
+            <h2>常见疑问 · 简要</h2>
+            <div class="faq-item">
+                <div class="faq-q">和真正的 PostgreSQL 有什么区别？</div>
+                <div class="faq-a">核心差异在于功能广度与持久性。模拟器支持常用语法，但未实现全部后端特性；数据也不会写入磁盘，刷新即丢失。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">可以用来准备面试或考认证吗？</div>
+                <div class="faq-a">可以用来练习基础查询和表操作，但高级主题（索引调优、锁机制、复制等）建议还是搭配真实环境。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">页面打不开或很慢怎么办？</div>
+                <div class="faq-a">工具依赖网络加载，建议检查网络状态或更换浏览器尝试。页面本身是轻量实现，通常不会太慢。</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- 收尾 -->
+        <p>
+            总的来说，<a href="https://webs-pg-simulator.com">pg模拟器</a> 是一个顺手的小工具，适合嵌入到你的学习或文档查阅流程里。不必对它期待过多，也不必贬低——知道什么时候用它，就是最好的使用方式。
+        </p>
+
+        <div class="footer-note">
+            <span>本页为资料索引性质，内容基于公开信息整理。工具的具体表现以实际页面为准。</span>
+        </div>
+
+    </div>
+</body>
+</html>
